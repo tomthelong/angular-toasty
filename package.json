@@ -16,5 +16,8 @@
     "gulp-watch": "^4.3.4",
     "run-sequence": "^1.1.2",
     "yargs": "~3.16.1"
+  },
+  "scripts": {
+    "build": "gulp --production"
   }
 }

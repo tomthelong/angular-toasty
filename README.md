@@ -2,6 +2,10 @@ Angular Toasty
 =================
 **Angular Toasty** is a simple standalone AngularJS module with extensive features that provides growl-style alerts and messages for your app.
 
+
+#### Differences between this fork and the [original repo](https://github.com/teamfa/angular-toasty)
+* replaced $timeout with $interval for better protractor testing
+
 #### Demo
 
 [Check it out!](http://teamfa.com/angular-toasty/example/)
@@ -20,7 +24,7 @@ Angular Toasty
 ###### Install from Bower:
 
 ```HTML
-bower install angular-toasty
+bower install tomthelong/angular-toasty
 ```
 ###### Add dependancies to HTML (AngularJS required)
 
@@ -119,7 +123,7 @@ toasty({
 You can easily clear/remove a toast from the view by calling the `clear` method. To remove all at once, just call the method with no ID.
 
 ```
-toasty.clear(); // Clear all 
+toasty.clear(); // Clear all
 toasty.clear(id); // Remove a single toast by it's ID
 ```
 

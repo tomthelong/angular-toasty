@@ -31,7 +31,7 @@
  */
 
 angular.module('angular-toasty', []);
-angular.module('angular-toasty').directive('toasty', ['toasty', '$timeout', '$sce', function(toasty, $timeout, $sce) {
+angular.module('angular-toasty').directive('toasty', ['toasty', '$interval', '$sce', function(toasty, $interval, $sce) {
 	return {
 		replace: true,
 		restrict: 'EA',
@@ -105,9 +105,9 @@ angular.module('angular-toasty').directive('toasty', ['toasty', '$timeout', '$sc
 			// Custom setTimeout function for specific
 			// setTimeouts on individual toasts
 			function setTimeout(toasty, time) {
-				toasty.timeout = $timeout(function() {
+				toasty.timeout = $interval(function() {
 					clear(toasty.id);
-				}, time);
+				}, time, 1);
 			}
 
 			// Checks whether the local option is set, if not,
@@ -137,7 +137,7 @@ angular.module('angular-toasty').directive('toasty', ['toasty', '$timeout', '$sc
 				else
 					theme = config.theme;
 
-				// If we've gone over our limit, remove the earliest 
+				// If we've gone over our limit, remove the earliest
 				// one from the array
 				if (scope.toasty.length >= config.limit)
 					scope.toasty.shift();
@@ -176,9 +176,9 @@ angular.module('angular-toasty').directive('toasty', ['toasty', '$timeout', '$sc
 				// set the toast to timeout
 				if (options.timeout != false) {
 					if (options.timeout || config.timeout)
-						setTimeout(scope.toasty[scope.toasty.length - 1], options.timeout || config.timeout);	
+						setTimeout(scope.toasty[scope.toasty.length - 1], options.timeout || config.timeout);
 				}
-	
+
 			}
 		},
 		template: '<div id="toasty" ng-class="[position]">'
