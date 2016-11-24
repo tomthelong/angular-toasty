@@ -5,6 +5,7 @@ Angular Toasty
 
 #### Differences between this fork and the [original repo](https://github.com/teamfa/angular-toasty)
 * replaced $timeout with $interval for better protractor testing
+* added $timeout and removed $$phase => scope digest
 
 #### Demo
 
