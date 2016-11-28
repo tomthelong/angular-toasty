@@ -6,6 +6,7 @@ Angular Toasty
 #### Differences between this fork and the [original repo](https://github.com/teamfa/angular-toasty)
 * 2.0.0 replaced $timeout with $interval for better protractor testing
 * 2.0.1 added $timeout and removed $$phase => scope digest
+* 2.1.0 Angular version update. Removed timeout from 2.0.1. Runs onClick when closing. Removed digest completly because it isn't needed.
 
 #### Demo
 

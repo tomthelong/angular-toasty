@@ -31,7 +31,7 @@
  */
 
 angular.module('angular-toasty', []);
-angular.module('angular-toasty').directive('toasty', ['toasty', '$interval', '$sce', '$timeout', function (toasty, $interval, $sce, $timeout) {
+angular.module('angular-toasty').directive('toasty', ['toasty', '$interval', '$sce', function (toasty, $interval, $sce) {
 	return {
 		replace: true,
 		restrict: 'EA',
@@ -92,12 +92,10 @@ angular.module('angular-toasty').directive('toasty', ['toasty', '$interval', '$s
 				} else
 					angular.forEach(scope.toasty, function (value, key) {
 						if (value.id == id) {
-							$timeout(function() {
-								scope.$broadcast('toasty-cleared', scope.toasty[key]);
-								if (value.onRemove && angular.isFunction(value.onRemove))
-									value.onRemove.call(scope.toasty[key]);
-								scope.toasty.splice(key, 1);
-							}, 0);
+							scope.$broadcast('toasty-cleared', scope.toasty[key]);
+							if (value.onRemove && angular.isFunction(value.onRemove))
+								value.onRemove.call(scope.toasty[key]);
+							scope.toasty.splice(key, 1);
 						}
 					});
 			}
