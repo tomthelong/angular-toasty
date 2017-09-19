@@ -7,6 +7,7 @@ Angular Toasty
 * 2.0.0 replaced $timeout with $interval for better protractor testing
 * 2.0.1 added $timeout and removed $$phase => scope digest
 * 2.1.0 Angular version update. Removed timeout from 2.0.1. Runs onClick when closing. Removed digest completly because it isn't needed.
+* 2.1.1 Toasty has a max-width of 1000px so it can be closed also on a tablet with a resolution of 1024*768
 
 #### Demo
 
